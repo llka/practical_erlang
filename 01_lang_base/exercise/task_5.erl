@@ -7,6 +7,7 @@
 
 %% get 3 float numbers from binary
 get_floats(Bin) ->
+
   <<F1/float, F2/float, F3/float>> = Bin,
   {F1, F2, F3}.
 
