@@ -6,7 +6,12 @@
 
 %% Check are 2 float numbers equal with given precision
 is_equal(F1, F2, Precision) ->
-    false.
+    if
+        ((F1 - F2 >= 0) and (Precision >= F1 - F2)) or ((F1 - F2 < 0) and (Precision >= F2 - F1)) ->
+            true;
+        true -> % works as an 'else' branch
+            false
+    end.
 
 is_equal_test() ->
     ?assertEqual(true, is_equal(3.5, 3.5, 0.01)),
